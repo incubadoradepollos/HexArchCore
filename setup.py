@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="hexarch_core",
     version="0.0.1",
-    author="Jose Manuel Herera",
-    author_email="jmherrera76@gmail.com",
+    author="Jose Manuel Herera Saenz",
+    author_email="incubadoradepollos@gmail.com",
     description="Core for hexarch_core",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
