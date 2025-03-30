@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="hexarch_core",
-    version="0.1.0",
+    version="0.1.1",
     author="Jose Manuel Herera",
     author_email="jmherrera76@gmail.com",
     description="Core for hexarch_core",
