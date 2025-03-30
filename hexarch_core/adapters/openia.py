@@ -3,10 +3,26 @@
 import json
 import requests
 class OpenIAAdapter():
-    def __init__(self, token):
+    def __init__(self, token: str):
+        """_summary_
+
+        Args:
+            token (str): _description_
+        """
+        
         self.token = token
 
     def get_text_chat_context(self, model, context, prompt):
+        """Pregunta al modelo indicado, con el contexto y el propnt y devueve el resultado bruto
+
+        Args:
+            model (_type_): Modelo de open AI (gpt-4, ...) 
+            context (_type_): Contexto para el chat
+            prompt (_type_): Mensaje a enviar al chat
+
+        Returns:
+            _type_: devueve el resultado bruto
+        """
         payload = {
             "model": model,
             "messages": [
@@ -32,6 +48,16 @@ class OpenIAAdapter():
         return contenido_str
     
     def get_text_chat_context_json(self, model, context, prompt):
+        """Pregunta al modelo indicado, con el contexto y el propnt y devueve el resultado en json
+
+        Args:
+            model (_type_): Modelo de open AI (gpt-4, ...) 
+            context (_type_): Contexto para el chat
+            prompt (_type_): Mensaje a enviar al chat
+
+        Returns:
+            _type_: devueve el resultado en json
+        """
         content_ia = self.get_text_chat_context(model,context,prompt)
         # print(content_ia)
         contenido_str = content_ia.strip("```json").strip("```").strip()                
@@ -39,6 +65,16 @@ class OpenIAAdapter():
         
 
     def get_text_chat(self,model,prompt):
+        """Pregunta al modelo indicado, con el propnt y devueve el resultado bruto
+
+        Args:
+            model (_type_): Modelo de open AI (gpt-4, ...) 
+            prompt (_type_): Mensaje a enviar al chat
+
+
+        Returns:
+            _type_: _description_
+        """
         payload = {
                         "model": model,
                         "messages": [
@@ -61,6 +97,17 @@ class OpenIAAdapter():
 
 
     def get_image_chat (self, model, image_base64, prompt): 
+        """_summary_
+
+        Args:
+            model (_type_):  Modelo de open AI (gpt-4o, ...) 
+            image_base64 (_type_): Imagen en base64 para enviar al chat. 
+            prompt (_type_): Mensaje a enviar al chat
+
+
+        Returns:
+            _type_: _description_
+        """
 
         payload = {
                         "model": model,
