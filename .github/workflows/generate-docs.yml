@@ -25,7 +25,7 @@ jobs:
 
       - name: Generate documentation
         run: |
-          pdoc hexarch_product_core --output-dir docs
+          pdoc hexarch_core --output-dir docs
 
       - name: Commit and push docs
         run: |
