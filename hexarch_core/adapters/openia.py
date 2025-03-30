@@ -1,16 +1,18 @@
-#OPEN IA
+"""ADAPTADOR PARA REALIZAR OPERACIONES CON LOS MODELOS LLM DE OPEN IA"""
 
 import json
 import requests
 class OpenIAAdapter():
     def __init__(self, token: str):
-        """_summary_
+        """Inicializador de clase. 
 
         Args:
-            token (str): _description_
+            token (str): Tocken de acceso a la api de openai
         """
         
         self.token = token
+        """Token de acceso a la api de openai
+        """
 
     def get_text_chat_context(self, model, context, prompt):
         """Pregunta al modelo indicado, con el contexto y el propnt y devueve el resultado bruto
