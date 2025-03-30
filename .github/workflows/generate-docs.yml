@@ -1,10 +1,13 @@
 name: Generate Documentation
 
 on:
-  push:
-    branches:
-      - main  # Se ejecuta cuando hay cambios en main
-  workflow_dispatch:  # Permite ejecutarlo manualmente
+    push:
+        paths:
+            - 'hexarch_core/**'  # Solo ejecuta si cambia esta carpeta
+        branches:
+            - main  # Ajusta según la rama principal
+
+    workflow_dispatch:  # Permite ejecutarlo manualmente
 
 jobs:
   generate-docs:
@@ -34,4 +37,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add docs/
           git commit -m "Update documentation [skip ci]" || echo "No changes to commit"
-          git push origin HEAD:main
+          git push https://x-access-token:${{ secrets.REPO_GITHUB_TOKEN }}@github.com/incubadoradepollos/HexArchCore.git main
